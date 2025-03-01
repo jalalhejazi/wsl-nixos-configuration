@@ -35,9 +35,6 @@
 
   stable-packages = with pkgs; [
     # FIXME: customize these stable packages to your liking for the languages that you use
-
-    # FIXME: you can add plugins, change keymaps etc using (jeezyvim.nixvimExtend {})
-    # https://github.com/LGUG2Z/JeezyVim#extending
     jeezyvim
 
     # key tools
@@ -183,6 +180,7 @@ in {
           + "/extras/kanagawa.fish")}
 
         set -U fish_greeting
+        fish_add_path --append /mnt/c/Users/jalal/scoop/apps/win32yank/0.1.1
       '';
       functions = {
         refresh = "source $HOME/.config/fish/config.fish";
@@ -211,7 +209,7 @@ in {
         // {
           gapa = "git add --patch";
           grpa = "git reset --patch";
-          gst = "git status";
+          gs = "git status";
           gdh = "git diff HEAD";
           gp = "git push";
           gph = "git push -u origin HEAD";

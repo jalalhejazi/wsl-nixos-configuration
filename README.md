@@ -1,4 +1,4 @@
-# nixos-wsl-starter
+# nixos-wsl-starter | origins (https://github.com/LGUG2Z/nixos-wsl-starter)
 
 This repository is intended to be a sane, batteries-included starter template
 for running a [JeezyVim](https://github.com/LGUG2Z/JeezyVim)-powered NixOS
@@ -91,7 +91,7 @@ wsl -d NixOS
 - Get a copy of this repo (you'll probably want to fork it eventually):
 
 ```bash
-git clone https://github.com/LGUG2Z/nixos-wsl-starter.git /tmp/configuration
+git clone https://github.com/jalalhejazi/nixos-wsl-starter.git /tmp/configuration
 cd /tmp/configuration
 ```
 
