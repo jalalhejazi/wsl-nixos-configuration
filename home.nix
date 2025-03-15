@@ -105,7 +105,7 @@ in {
     starship.settings = {
       aws.disabled = true;
       gcloud.disabled = true;
-      kubernetes.disabled = false;
+      kubernetes.disabled = true;
       git_branch.style = "242";
       directory.style = "blue";
       directory.truncate_to_repo = false;
