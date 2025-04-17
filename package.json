@@ -1,0 +1,15 @@
+{
+  "name": "configuration",
+  "version": "1.0.0",
+  "description": "Powered NixOS development environment on WSL.",
+  "scripts": {
+    "build": "./nixos-rebuild.sh"
+  },
+  "keywords": [
+    "nixos",
+    "wsl",
+    "development",
+    "environment"
+  ],
+  "homepage": "https://github.com/jalalhejazi/nixos-wsl-starter"
+}
