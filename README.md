@@ -88,11 +88,12 @@ wsl --import NixOS .\NixOS\ .\nixos-wsl.tar.gz --version 2
 wsl -d NixOS
 ```
 
-- Get a copy of this repo (you'll probably want to fork it eventually):
+- Get a copy of this repo or the original one (you'll probably want to fork it eventually):
 
 ```bash
-git clone https://github.com/jalalhejazi/nixos-wsl-starter.git /tmp/configuration
-cd /tmp/configuration
+git clone https://github.com/jalalhejazi/nixos-wsl-starter.git ~/configuration
+## To rebuild on every change run 
+sudo nixos-rebuild switch --flake ~/configuration
 ```
 
 - Change the username to your desired username in `flake.nix` with `nvim` (or

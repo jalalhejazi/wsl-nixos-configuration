@@ -4,7 +4,7 @@
 ## chmod +x git-push.sh
 
 git add .
-git commit -m "rebuild"
+git commit -m "NixOS | configuration update"
 git push origin main
 
 
