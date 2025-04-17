@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Powered NixOS development environment on WSL.",
   "scripts": {
-    "build": "./nixos-rebuild.sh"
+    "build": "./bash/nixos-rebuild.sh",
+    "deploy": "./bash/git-push.sh"
   },
   "keywords": [
     "nixos",

@@ -243,6 +243,7 @@ in {
         pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
         f = "/mnt/c/Windows/explorer.exe";
         code = "/mnt/c/Users/${username}/scoop/apps/vscode/current/bin/code";
+        deploy = "/home/${username}/configuration/bash/git-push.sh";
       };
       plugins = [
         {
