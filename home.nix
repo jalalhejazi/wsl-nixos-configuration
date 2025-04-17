@@ -31,6 +31,10 @@
     vim
     wget
     zip
+    kubectl
+    kubectx
+    kubeval
+    kubeone
   ];
 
   stable-packages = with pkgs; [
@@ -40,6 +44,17 @@
     # key tools
     gh # for bootstrapping
     just
+
+    # Nodejs javascript serverside
+    nodePackages_latest.nodejs
+    nodePackages_latest.rimraf
+
+    # .NET 
+    dotnet-sdk
+
+    # Infrastructure as code 
+    terraform
+    pulumi-bin
 
     # core languages
     rustup
@@ -67,7 +82,7 @@
     shellcheck
     shfmt
     statix # nix
-  ];
+];
 in {
   imports = [
     nix-index-database.hmModules.nix-index
@@ -180,7 +195,7 @@ in {
           + "/extras/kanagawa.fish")}
 
         set -U fish_greeting
-        fish_add_path --append /mnt/c/Users/jalal/scoop/apps/win32yank/0.1.1
+        fish_add_path --append /mnt/c/Users/${username}/scoop/apps/win32yank/0.1.1
       '';
       functions = {
         refresh = "source $HOME/.config/fish/config.fish";
@@ -226,7 +241,7 @@ in {
         lvim = "nvim";
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
         pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
-        explorer = "/mnt/c/Windows/explorer.exe";
+        f = "/mnt/c/Windows/explorer.exe";
         code = "/mnt/c/Users/${username}/scoop/apps/vscode/current/bin/code";
       };
       plugins = [

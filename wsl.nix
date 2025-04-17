@@ -8,7 +8,7 @@
   ...
 }: {
   # FIXME: change to your tz! look it up with "timedatectl list-timezones"
-  time.timeZone = "America/Los_Angeles";
+  time.timeZone = "Europe/Copenhagen";
 
   networking.hostName = "${hostname}";
 
@@ -29,9 +29,9 @@
     # FIXME: change your shell here if you don't want fish
     shell = pkgs.fish;
     extraGroups = [
+      # this list can run software without the need for typing sudo 
       "wheel"
-      # FIXME: uncomment the next line if you want to run docker without sudo
-      # "docker"
+      "docker"
     ];
     # FIXME: add your own hashed password
     # hashedPassword = "";
@@ -58,7 +58,7 @@
     startMenuLaunchers = true;
 
     # Enable integration with Docker Desktop (needs to be installed)
-    docker-desktop.enable = false;
+    docker-desktop.enable = true;
   };
 
   virtualisation.docker = {
