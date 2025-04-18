@@ -1,4 +1,12 @@
-# nixos-wsl-starter | origins (https://github.com/LGUG2Z/nixos-wsl-starter)
+
+
+![](./images/nixos-wsl.png)
+
+
+
+## NixOS-Windows-subsystem-for-Linux
+
+- origin fork: https://github.com/LGUG2Z/nixos-wsl-starter
 
 This repository is intended to be a sane, batteries-included starter template
 for running a [JeezyVim](https://github.com/LGUG2Z/JeezyVim)-powered NixOS
