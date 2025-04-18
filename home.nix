@@ -199,9 +199,10 @@ in {
       '';
       functions = {
         refresh = "source $HOME/.config/fish/config.fish";
+        who="whoami";
         take = ''mkdir -p -- "$1" && cd -- "$1"'';
         ttake = "cd $(mktemp -d)";
-        show_path = "echo $PATH | tr ' ' '\n'";
+        path = "echo $PATH | tr ' ' '\n'";
         posix-source = ''
           for i in (cat $argv)
             set arr (echo $i |tr = \n)
@@ -239,11 +240,16 @@ in {
       shellAliases = {
         jvim = "nvim";
         lvim = "nvim";
-        pbcopy = "/mnt/c/Windows/System32/clip.exe";
-        pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
+        # access any windows programs(.exe) 
         f = "/mnt/c/Windows/explorer.exe";
-        code = "/mnt/c/Users/${username}/scoop/apps/vscode/current/bin/code";
+        pbcopy = "/mnt/c/Windows/System32/clip.exe";
+        # access Windows PowerShell commands
+        pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
+        # access any Windows scoop installed programs
+        # code = "/mnt/c/Users/${username}/scoop/apps/vscode/current/bin/code";
+        # access bash scripts for any automation
         deploy = "/home/${username}/configuration/bash/git-push.sh";
+        build = "/home/${username}/configuration/bash/nixos-rebuild.sh";
       };
       plugins = [
         {
