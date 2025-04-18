@@ -45,14 +45,10 @@
     gh # for bootstrapping
     just
 
-    # Nodejs javascript serverside
-    nodePackages_latest.nodejs
-    nodePackages_latest.rimraf
-
     # .NET 
     dotnet-sdk
 
-    # Infrastructure as code 
+    # IaC and cloud
     terraform
     pulumi-bin
 
@@ -71,14 +67,19 @@
     tree-sitter
 
     # language servers
+    nodejs-18_x # for the vscode language server interfaces
     nodePackages.vscode-langservers-extracted # html, css, json, eslint
     nodePackages.yaml-language-server
     nil # nix
 
+    # NPM 
+    nodePackages_latest.rimraf
+    nodePackages.prettier
+
+
     # formatters and linters
     alejandra # nix
     deadnix # nix
-    nodePackages.prettier
     shellcheck
     shfmt
     statix # nix
@@ -240,14 +241,10 @@ in {
       shellAliases = {
         jvim = "nvim";
         lvim = "nvim";
-        # access any windows programs(.exe) 
         f = "/mnt/c/Windows/explorer.exe";
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
-        # access Windows PowerShell commands
         pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
-        # access any Windows scoop installed programs
-        # code = "/mnt/c/Users/${username}/scoop/apps/vscode/current/bin/code";
-        # access bash scripts for any automation
+        subl = "/mnt/c/Users/${username}/scoop/shims/subl.exe";
         deploy = "/home/${username}/configuration/bash/git-push.sh";
         build = "/home/${username}/configuration/bash/nixos-rebuild.sh";
       };
