@@ -2,6 +2,12 @@
 
 ![](./images/nixos-wsl.png)
 
+✨ Terminal-driven workflows ✍️, automated setups 🤖, zero bloat
+✨ Declarative builds and deployments
+✨ Reproducible
+✨ Declarative
+✨ Reliable 
+ - https://nixos.org/
 
 
 ## NixOS-Windows-subsystem-for-Linux
