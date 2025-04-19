@@ -35,6 +35,7 @@
     kubectx
     kubeval
     kubeone
+    minikube
   ];
 
   stable-packages = with pkgs; [
@@ -261,6 +262,9 @@ in {
         build = "/home/${username}/configuration/bash/nixos-rebuild.sh";
         clean = "/home/${username}/configuration/bash/gc.sh";
 
+        # kubernetes cluster management
+        k8s-init = "/home/${username}/configuration/bash/k8s-nixos-dev-cluster.sh";
+        
         # process management
         process-kill = "/home/${username}/configuration/bash/process-kill.sh";
 
