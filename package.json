@@ -4,7 +4,8 @@
   "description": "Powered NixOS development environment on WSL.",
   "scripts": {
     "build": "./bash/nixos-rebuild.sh",
-    "deploy": "./bash/git-push.sh"
+    "deploy": "./bash/git-push.sh",
+    "clean": "./bash/gc.sh"
   },
   "keywords": [
     "nixos",

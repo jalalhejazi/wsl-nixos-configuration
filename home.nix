@@ -116,12 +116,12 @@ in {
     nix-index.enableFishIntegration = true;
     nix-index-database.comma.enable = true;
 
-    # FIXME: disable this if you don't want to use the starship prompt
+    # prompt and shell 
     starship.enable = true;
     starship.settings = {
       aws.disabled = true;
       gcloud.disabled = true;
-      kubernetes.disabled = true;
+      kubernetes.disabled = false;
       git_branch.style = "242";
       directory.style = "blue";
       directory.truncate_to_repo = false;
@@ -154,8 +154,8 @@ in {
         side-by-side = true;
         navigate = true;
       };
-      userEmail = "jh@gmail.com"; # FIXME: set your git email
-      userName = "JH"; #FIXME: set your git username
+      userEmail = "jh@linuxfoundation.org"; # FIXME: set your git email
+      userName = "jh"; #FIXME: set your git username
       extraConfig = {
         # FIXME: uncomment the next lines if you want to be able to clone private https repos
         # url = {
@@ -224,29 +224,50 @@ in {
         }
         # git shortcuts
         // {
-          gapa = "git add --patch";
-          grpa = "git reset --patch";
           gs = "git status";
-          gdh = "git diff HEAD";
-          gp = "git push";
-          gph = "git push -u origin HEAD";
-          gco = "git checkout";
-          gcob = "git checkout -b";
-          gcm = "git checkout master";
-          gcd = "git checkout develop";
-          gsp = "git stash push -m";
-          gsa = "git stash apply stash^{/";
-          gsl = "git stash list";
+          git-status = "git status";
+          git-show = "git show";
+          git-add-patch = "git add --patch";
+          git-reset-patch = "git reset --patch";
+          git-diff-head = "git diff HEAD";
+          git-commit = "git commit";
+          git-commit-amend = "git commit --amend --no-edit";
+          git-push = "git push";
+          git-push-head = "git push -u origin HEAD";
+          git-checkout = "git checkout";
+          git-checkout-b = "git checkout -b";
+          git-checkout-main = "git checkout main";
+          git-checkout-dev = "git checkout dev";
+          git-stash-push = "git stash push -m";
+          git-stash-apply = "git stash apply stash^{/";
+          git-stash-list = "git stash list";
+          git-log-hitory-n10 = "git log --graph --oneline --decorate -n 10";
+          git-log-hitory-n01 = "git log --graph --oneline --decorate -n 1";
         };
-      shellAliases = {
+      shellAliases = { # FIXME: add your own aliases here | remove the ones you don't want
         jvim = "nvim";
         lvim = "nvim";
+
+        # section to call windows programs outside of WSL
         f = "/mnt/c/Windows/explorer.exe";
+        finder = "/mnt/c/Windows/explorer.exe";
+        explorer = "/mnt/c/Windows/explorer.exe";
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
         pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
         subl = "/mnt/c/Users/${username}/scoop/shims/subl.exe";
-        deploy = "/home/${username}/configuration/bash/git-push.sh";
+        
+        # nixos rebuild and garbage collection
+        rebuild = "/home/${username}/configuration/bash/nixos-rebuild.sh";
         build = "/home/${username}/configuration/bash/nixos-rebuild.sh";
+        clean = "/home/${username}/configuration/bash/gc.sh";
+
+        # process management
+        process-kill = "/home/${username}/configuration/bash/process-kill.sh";
+
+        # GIT: calling scripts to do more than just the shellAbbrs section
+        git-reset-hard = "/home/${username}/configuration/bash/git-reset-hard.sh";
+        git-log-file = "/home/${username}/configuration/bash/git-log.sh";
+        git-deploy = "/home/${username}/configuration/bash/git-push.sh";
       };
       plugins = [
         {
