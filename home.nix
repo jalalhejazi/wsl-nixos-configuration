@@ -274,8 +274,8 @@ in {
         git-deploy = "~/configuration/bash/git-push.sh";
 
         # Experiments and test only 
-        test-mssql = "~/experimental/mssql/test.sh";
-        test-nix-shell = "~/experimental/nix-shell/test.sh";
+        test-mssql = "~/configuration/bash/experimental/mssql/test.sh";
+        test-nix-shell = "~/configuration/bash/experimental/nix-shell/test.sh";
 
       };
       plugins = [
