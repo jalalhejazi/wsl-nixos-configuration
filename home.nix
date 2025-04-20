@@ -249,7 +249,7 @@ in {
         jvim = "nvim";
         lvim = "nvim";
 
-        # section to call windows programs outside of WSL
+        # (windows c drive) call windows programs outside of WSL 
         f = "/mnt/c/Windows/explorer.exe";
         finder = "/mnt/c/Windows/explorer.exe";
         explorer = "/mnt/c/Windows/explorer.exe";
@@ -258,20 +258,25 @@ in {
         subl = "/mnt/c/Users/${username}/scoop/shims/subl.exe";
         
         # nixos rebuild and garbage collection
-        rebuild = "/home/${username}/configuration/bash/nixos-rebuild.sh";
-        build = "/home/${username}/configuration/bash/nixos-rebuild.sh";
-        clean = "/home/${username}/configuration/bash/gc.sh";
+        rebuild = "~/configuration/bash/nixos-rebuild.sh";
+        build = "~/configuration/bash/nixos-rebuild.sh";
+        clean = "~/configuration/bash/gc.sh";
 
         # kubernetes cluster management
-        k8s-init = "/home/${username}/configuration/bash/k8s-nixos-dev-cluster.sh";
+        k8s-init = "~/configuration/bash/k8s-nixos-dev-cluster.sh";
         
         # process management
-        process-kill = "/home/${username}/configuration/bash/process-kill.sh";
+        process-kill = "~/configuration/bash/process-kill.sh";
 
         # GIT: calling scripts to do more than just the shellAbbrs section
-        git-reset-hard = "/home/${username}/configuration/bash/git-reset-hard.sh";
-        git-log-file = "/home/${username}/configuration/bash/git-log.sh";
-        git-deploy = "/home/${username}/configuration/bash/git-push.sh";
+        git-reset-hard = "~/configuration/bash/git-reset-hard.sh";
+        git-log-file = "~/configuration/bash/git-log.sh";
+        git-deploy = "~/configuration/bash/git-push.sh";
+
+        # Experiments and test only 
+        test-mssql = "~/experimental/mssql/test.sh";
+        test-nix-shell = "~/experimental/nix-shell/test.sh";
+
       };
       plugins = [
         {
