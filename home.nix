@@ -36,27 +36,25 @@
     kubeval
     kubeone
     minikube
+    k9s
   ];
 
   stable-packages = with pkgs; [
-    # FIXME: customize these stable packages to your liking for the languages that you use
-    jeezyvim
+    jeezyvim # https://github.com/LGUG2Z/JeezyVim
 
     # key tools
-    gh # for bootstrapping
+    gh
     just
 
     # .NET 
-    dotnet-sdk
+    dotnet-sdk # version 8
 
     # IaC and cloud
     terraform
     pulumi-bin
 
-    # core languages
+    # 🦀 rust
     rustup
-
-    # rust stuff
     cargo-cache
     cargo-expand
 
@@ -68,7 +66,7 @@
     tree-sitter
 
     # language servers
-    nodejs-18_x # for the vscode language server interfaces
+    nodejs-18_x # v18.20.5
     nodePackages.vscode-langservers-extracted # html, css, json, eslint
     nodePackages.yaml-language-server
     nil # nix
@@ -97,7 +95,7 @@ in {
     homeDirectory = "/home/${username}";
 
     sessionVariables.EDITOR = "nvim";
-    # FIXME: set your preferred $SHELL
+    sessionVariables.GIT_EDITOR = "nvim";
     sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/fish";
   };
 
@@ -245,9 +243,9 @@ in {
           git-log-hitory-n10 = "git log --graph --oneline --decorate -n 10";
           git-log-hitory-n01 = "git log --graph --oneline --decorate -n 1";
         };
-      shellAliases = { # FIXME: add your own aliases here | remove the ones you don't want
+      shellAliases = {
         jvim = "nvim";
-        lvim = "nvim";
+        edit = "nvim";
 
         # (windows c drive) call windows programs outside of WSL 
         f = "/mnt/c/Windows/explorer.exe";
