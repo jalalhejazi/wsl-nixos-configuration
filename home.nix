@@ -6,8 +6,7 @@
   nix-index-database,
   ...
 }: let
-  unstable-packages = with pkgs.unstable; [
-    # FIXME: select your core binaries that you always want on the bleeding-edge
+  unstable-packages = with pkgs.unstable; [ # https://search.nixos.org/options?channel=unstable
     bat
     bottom
     coreutils
@@ -39,8 +38,8 @@
     k9s
   ];
 
-  stable-packages = with pkgs; [
-    jeezyvim # https://github.com/LGUG2Z/JeezyVim
+  stable-packages = with pkgs; [ #https://search.nixos.org/packages
+    jeezyvim
 
     # key tools
     gh
@@ -95,7 +94,6 @@ in {
     homeDirectory = "/home/${username}";
 
     sessionVariables.EDITOR = "nvim";
-    sessionVariables.GIT_EDITOR = "nvim";
     sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/fish";
   };
 
