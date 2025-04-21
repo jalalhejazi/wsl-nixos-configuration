@@ -130,6 +130,7 @@ in {
     };
 
     # FIXME: disable whatever you don't want
+    bash.enable = true;
     fzf.enable = true;
     fzf.enableFishIntegration = true;
     lsd.enable = true;
