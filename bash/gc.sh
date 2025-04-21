@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## manually remove old nix generations
+## https://nix.dev/manual/nix/2.26/package-management/garbage-collection
 ## gc
 ## nix-collect-garbage -d
 
