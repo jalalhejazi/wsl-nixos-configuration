@@ -257,7 +257,8 @@ in {
         # nixos rebuild and garbage collection
         rebuild = "~/configuration/bash/nixos-rebuild.sh";
         build = "~/configuration/bash/nixos-rebuild.sh";
-        clean = "~/configuration/bash/gc.sh";
+        clean-docker-images = "~/configuration/bash/gc.sh";
+        clean-generations = "nix-collect-garbage -d";
 
         # kubernetes cluster management
         k8s-init = "~/configuration/bash/k8s-nixos-dev-cluster.sh";
