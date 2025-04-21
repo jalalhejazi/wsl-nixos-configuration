@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
 
-sudo nixos-rebuild switch --flake ~/configuration
-
-
-
-
+sudo nixos-rebuild switch --flake ~/configuration --refresh
