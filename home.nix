@@ -30,12 +30,17 @@
     vim
     wget
     zip
+    #☸
+    kubernetes-helm
+    helm-dashboard
+    helm-docs
     kubectl
     kubectx
     kubeval
     kubeone
     minikube
     k9s
+    krew
   ];
 
   stable-packages = with pkgs; [ #https://search.nixos.org/packages
@@ -259,10 +264,9 @@ in {
         build = "~/configuration/bash/nixos-rebuild.sh";
         clean-docker-images = "~/configuration/bash/gc.sh";
         clean-generations = "nix-collect-garbage -d";
-
         # kubernetes cluster management
-        k8s-init = "~/configuration/bash/k8s-nixos-dev-cluster.sh";
-        
+        kubernetes-cluster-create = "~/configuration/bash/k8s-nixos-dev-cluster.sh";
+        kubernetes-cluster-remove = "minikube delete -p nixos-dev-cluster";
         # process management
         process-kill = "~/configuration/bash/process-kill.sh";
 
@@ -271,7 +275,7 @@ in {
         git-log-file = "~/configuration/bash/git-log.sh";
         git-deploy = "~/configuration/bash/git-push.sh";
 
-        # Experiments and test only 
+        # Experiments
         test-mssql = "~/configuration/bash/experimental/mssql/test.sh";
         test-nix-shell = "~/configuration/bash/experimental/nix-shell/test.sh";
 
