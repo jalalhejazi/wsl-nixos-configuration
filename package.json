@@ -13,5 +13,6 @@
     "development",
     "environment"
   ],
-  "homepage": "https://github.com/jalalhejazi/nixos-wsl-starter"
+  "main": "index.js",
+  "homepage": "https://github.com/jalalhejazi/wsl-nixos-configuration.git"
 }
