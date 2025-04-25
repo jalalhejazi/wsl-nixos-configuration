@@ -106,7 +106,6 @@ in {
     stable-packages
     ++ unstable-packages
     ++
-    # FIXME: you can add anything else that doesn't fit into the above two lists in here
     [
       # pkgs.some-package
       # pkgs.unstable.some-other-package
@@ -273,7 +272,7 @@ in {
         # GIT: calling scripts to do more than just the shellAbbrs section
         git-reset-hard = "~/configuration/bash/git-reset-hard.sh";
         git-log-file = "~/configuration/bash/git-log.sh";
-        git-deploy = "~/configuration/bash/git-push.sh";
+        deploy = "~/configuration/bash/git-push.sh";
 
         # Experiments
         test-mssql = "~/configuration/bash/experimental/mssql/test.sh";
