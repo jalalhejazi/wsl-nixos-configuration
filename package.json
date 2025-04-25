@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "nixos wsl configuration ",
   "main": "index.js",
-  "scripts": {
-    "test": "echo 'test'"
+   "scripts": {
+    "build": "./bash/nixos-rebuild.sh",
+    "deploy": "./bash/git-push.sh",
+    "clean": "./bash/gc.sh"
   },
   "repository": {
     "type": "git",
