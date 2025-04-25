@@ -1,18 +1,22 @@
 {
   "name": "configuration",
   "version": "1.0.0",
-  "description": "Powered NixOS development environment on WSL.",
+  "description": "nixos wsl configuration ",
+  "main": "index.js",
   "scripts": {
-    "build": "./bash/nixos-rebuild.sh",
-    "deploy": "./bash/git-push.sh",
-    "clean": "./bash/gc.sh"
+    "test": "echo 'test'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jalalhejazi/wsl-nixos-configuration.git"
   },
   "keywords": [
-    "nixos",
-    "wsl",
-    "development",
-    "environment"
+    "nixos"
   ],
-  "main": "index.js",
-  "homepage": "https://github.com/jalalhejazi/wsl-nixos-configuration.git"
+  "author": "jh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jalalhejazi/wsl-nixos-configuration/issues"
+  },
+  "homepage": "https://github.com/jalalhejazi/wsl-nixos-configuration#readme"
 }
