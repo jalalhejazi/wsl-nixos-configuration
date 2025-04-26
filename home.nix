@@ -41,16 +41,20 @@
     minikube
     k9s
     krew
+    docker-compose
   ];
 
   stable-packages = with pkgs; [ #https://search.nixos.org/packages
     jeezyvim
 
-    # key tools
     gh
+    lazygit
     just
+    python312Full
+    nodejs_23
+    infisical
+    lazygit
 
-    # .NET 
     dotnet-sdk # version 8
 
     # IaC and cloud
@@ -70,12 +74,11 @@
     tree-sitter
 
     # language servers
-    nodejs-18_x # v18.20.5
     nodePackages.vscode-langservers-extracted # html, css, json, eslint
     nodePackages.yaml-language-server
     nil # nix
 
-    # NPM 
+    # NPM
     nodePackages_latest.rimraf
     nodePackages.prettier
 
@@ -266,6 +269,7 @@ in {
         # kubernetes cluster management
         kubernetes-cluster-create = "~/configuration/bash/k8s-nixos-dev-cluster.sh";
         kubernetes-cluster-remove = "minikube delete -p nixos-dev-cluster";
+        kubectl-help = "~/configuration/bash/experimental/kubectl-starter/kubectl-helper.sh";
         # process management
         process-kill = "~/configuration/bash/process-kill.sh";
 
