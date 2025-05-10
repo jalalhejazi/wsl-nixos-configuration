@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# kubectl-helper: A Bash utility script for effective Kubernetes cluster management
+# kubectl-helper: A Bash utility script for effective Kubernetes cluster management & troubleshooting
 # Usage: ./kubectl-helper.sh [command] [options]
 
 set -euo pipefail
@@ -13,23 +13,32 @@ usage() {
 Usage: \$0 <action> [args]
 
 Actions:
-  ctx-switch   <context>           Switch to a different kubeconfig context
-  ns-list                          List all namespaces
-  ns-create    <namespace>         Create a new namespace
-  pod-list     [namespace]         List pods in a namespace (default: all)
-  deploy-list  [namespace]         List deployments
-  describe     <resource> <name> [namespace]  Describe a resource
-  logs         <pod> [container] [namespace]  Fetch logs from a pod/container
-  exec         <pod> [container] [namespace]  Exec into a pod/container
-  scale        <deployment> <replicas> [namespace]  Scale a deployment
-  rollout      <deployment> [namespace]  View rollout status
-  rollout-restart <deployment> [namespace]  Restart a deployment
-  top-pods     [namespace]         Show resource usage of pods
-  port-forward <pod> <local_port>:<pod_port> [namespace]  Forward port from pod
-  apply        <manifest-file>     Apply Kubernetes manifest
-  delete       <resource> <name> [namespace]  Delete a resource
-  explain      <resource>          Show API documentation for a resource
-  help                             Show this help message
+  ctx-switch       <context>                       Switch to a different kubeconfig context
+  ns-list                                            List all namespaces
+  ns-create         <namespace>                     Create a new namespace
+  pod-list          [namespace]                     List pods in a namespace (default: all)
+  deploy-list       [namespace]                     List deployments
+  describe          <resource> <name> [namespace]   Describe a resource
+  logs              <pod> [container] [namespace]   Fetch logs from a pod/container
+  exec              <pod> [container] [namespace]   Exec into a pod/container
+  scale             <deployment> <replicas> [ns]     Scale a deployment
+  rollout           <deployment> [namespace]        View rollout status
+  rollout-restart   <deployment> [namespace]        Restart a deployment
+  top-pods          [namespace]                     Show resource usage of pods
+  port-forward      <pod> <local:pod_port> [ns]      Forward port from pod
+  apply             <manifest-file>                 Apply Kubernetes manifest
+  delete            <resource> <name> [namespace]   Delete a resource
+  explain           <resource>                      Show API documentation for a resource
+
+Troubleshooting:
+  events            [namespace]                     Show recent events (default: all)
+  node-list                                          List nodes and their status
+  node-info         <node>                          Describe a specific node
+  cs-status                                         Show control-plane component statuses
+  pvc-list          [namespace]                     List persistent volume claims
+  debug-pod         <pod> [container] [namespace]   Start an ephemeral debug container in a pod
+  describe-all      <resource> [namespace]          Describe all resources of a type
+  help                                              Show this help message
 EOF
 }
 
@@ -53,6 +62,9 @@ case "$action" in
     kubectl get deployments -n $ns;;
   describe)
     kubectl describe "$1" "$2" ${3:+-n $3};;
+  describe-all)
+    ns=${2:+"-n $2"}
+    kubectl describe "$1" $ns;;
   logs)
     kubectl logs "$1" ${2:+-c $2} ${3:+-n $3};;
   exec)
@@ -73,6 +85,24 @@ case "$action" in
     kubectl delete "$1" "$2" ${3:+-n $3};;
   explain)
     kubectl explain "$1";;
+
+  # Troubleshooting Commands
+  events)
+    ns=${1:-"--all-namespaces"}
+    kubectl get events -n $ns --sort-by='.metadata.lastTimestamp';;
+  node-list)
+    kubectl get nodes;;
+  node-info)
+    kubectl describe node "$1";;
+  cs-status)
+    kubectl get componentstatus;;
+  pvc-list)
+    ns=${1:-"--all-namespaces"}
+    kubectl get pvc -n $ns;;
+  debug-pod)
+    # Requires Kubernetes v1.18+ with debug support
+    ns=${3:-"default"}
+    kubectl debug -it "$1" ${2:+-c $2} --image=busybox -n $ns -- /bin/sh;;
   help|*)
     usage;;
 esac
